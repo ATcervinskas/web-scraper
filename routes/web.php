@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WebScraper;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [HomeController::class,'index']);
 
-Route::get('/{siteName}',[WebScraper::class,'index'])->name('home') ;
 
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
